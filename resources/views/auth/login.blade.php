@@ -70,8 +70,8 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+<script src="{{asset('js/sweetalert-11.1.9.js')}}"></script>
 <script>
     $(document).ready(function() {
         // $('#formRegister').submit(function (e) {
@@ -88,7 +88,7 @@
             if(email.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Email Wajib Diisi !'
                 });
@@ -97,7 +97,7 @@
             if(password.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Password Wajib Diisi !'
                 });
@@ -122,21 +122,21 @@
                     var spas= ' ';
                     if (err.responseJSON.errors.email && err.responseJSON.errors.password) {
                         Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Opps!',
                             text: 'Email & password field is required.'
                         });
                     }
                     if (err.responseJSON.errors.email) {
                         Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Opps!',
                             text: err.responseJSON.errors.email[0]
                         });
                     }
                     if (err.responseJSON.errors.password) {
                         Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Opps!',
                             text: err.responseJSON.errors.password[0]
                         });

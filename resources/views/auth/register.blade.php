@@ -87,8 +87,8 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+<script src="{{asset('js/sweetalert-11.1.9.js')}}"></script>
 <script>
     $(document).ready(function() {
         // $('#formRegister').submit(function (e) {
@@ -111,7 +111,7 @@
             if (nama.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Nama Lengkap Wajib Diisi !'
                 });
@@ -119,7 +119,7 @@
             if(email.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Email Wajib Diisi !'
                 });
@@ -128,7 +128,7 @@
             if(alamat.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Alamat Wajib Diisi !'
                 });
@@ -137,7 +137,7 @@
             if(password.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Password Wajib Diisi !'
                 });
@@ -145,7 +145,7 @@
             if(passwordConfirm.length == "") {
 
                 Swal.fire({
-                    type: 'warning',
+                    icon: 'warning',
                     title: 'Oops...',
                     text: 'Konfirmasi Password Wajib Diisi !'
                 });
@@ -166,7 +166,7 @@
                 success: function (resp) {
                     console.log(resp);
                     Swal.fire({
-                        type: 'success',
+                        icon: 'success',
                         title: 'Register Berhasil!',
                         text: 'silahkan login!'
                     });
@@ -179,7 +179,7 @@
 
                     // }
                     Swal.fire({
-                        type: 'error',
+                        icon: 'error',
                         title: 'Opps!',
                         text: err.responseJSON.message
                     });

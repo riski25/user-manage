@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}" placeholder="Email">
+                            <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}" placeholder="Email" disabled>
                         </div>
                         <div class="form-group">
                           <label for="inputAddress">Alamat</label>
@@ -63,8 +63,11 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script> --}}
+<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+<script src="{{asset('js/sweetalert-11.1.9.js')}}"></script>
+
 <script>
     $(document).ready(function() {
         $('#btn-data').click('submit',function (e) {
@@ -85,6 +88,7 @@
                     title: 'Oops...',
                     text: 'Nama Lengkap Wajib Diisi !'
                 });
+                return false;
             }
             if(email.length == "") {
 
@@ -93,6 +97,8 @@
                     title: 'Oops...',
                     text: 'Email Wajib Diisi !'
                 });
+                return false;
+
 
             }
             if(alamat.length == "") {
@@ -102,6 +108,7 @@
                     title: 'Oops...',
                     text: 'Alamat Wajib Diisi !'
                 });
+                return false;
 
             }
 
@@ -124,7 +131,7 @@
                         text: resp.message,
                         timer: 5000
                     }).then (function() {
-                        window.location.href = "{{ route('users.index') }}";
+                        window.location.href = "{{ route('home') }}";
                     });
                     // setTimeout(function(){
                     //     window.location.href.reload;

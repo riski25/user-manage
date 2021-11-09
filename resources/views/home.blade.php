@@ -12,15 +12,24 @@
         </div>
     </h5>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <!-- Page Heading -->
             <div class="card">
                 <div class="card-header">
                     <h2>Selamat datang, <b>{{ Auth()->user()->name}}</b></h2>
                 </div>
+
+                <div class="card-body">
+                    <img class="card-img" src="{{asset('img/images/page.jpg')}}"  alt="" srcset="">
+                </div>
             </div>
             <!-- /.row -->
         </div>
+    </div>
+    <div class="col-sm-5 mt-5 copyright">
+        <p>
+            Copyright &copy; 2021 - User Management
+        </p>
     </div>
 </div>
 @endsection

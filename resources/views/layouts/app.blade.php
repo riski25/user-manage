@@ -32,11 +32,47 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.index') }}">User</a>
-                        </li>
-                    </ul>
+                    {{-- {{ dd(auth()->user()->hasPermissionTo('admins.index'))}} --}}
+                    @if (!auth()->user())
+
+                    @else
+                        {{-- auth()->user()->can('admins.index') --}}
+                        @role('admin')
+
+                            @if (auth()->user()->hasPermissionTo('admins.index'))
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admins.user.index') }}">User</a>
+                                </li>
+                            @endif
+                            {{-- <ul class="navbar-nav mr-auto"> --}}
+                                <li class="nav-item dropdown">
+                                    <a id="" class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" data-target="navbarSettingAccess" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Setting Access <span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" id="navbarSettingAccess" aria-labelledby="navbarSettingAccess">
+                                        @if (auth()->user()->can('admins.role.index','admins.role.show'))
+                                            <a class="dropdown-item" href="{{route('admins.role.index')}}">
+                                                Roles
+                                            </a>
+                                        @endif
+
+                                        @if (auth()->user()->can('admins.permission.index','admins.permission.show'))
+                                        {{-- <li class="dropdown-submenu"> --}}
+                                            <a href="{{route('admins.permission.index')}}" class="dropdown-item">
+                                                <span class="nav-label">Permmissions</span><span class="caret"></span>
+                                            </a>
+                                        {{-- </li> --}}
+                                        @endif
+                                            {{-- <a class="dropdown-item" href="{{route('admins.permission.index')}}">
+                                                Permmissions
+                                            </a> --}}
+                                    </ul>
+                                </li>
+                            </ul>
+                        @endrole
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
